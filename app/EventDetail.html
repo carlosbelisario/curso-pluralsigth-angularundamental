@@ -19,7 +19,7 @@
                 <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" />
                 <div class="row">
                     <div class="span11">
-                        <h2 ng-bind-template="{{event.name}} - {{event.date}}"></h2>
+                        <h2>{{event.name | uppercase}}</h2>
                     </div>
                 </div>
                 <div ng-bind-html="snippet">some title</div>
@@ -40,8 +40,12 @@
                     </div>
                     <hr />
                     <h3>Sessions</h3>
+                    <select ng-model="sortOrder">
+                        <option value="name">Name</option>
+                        <option value="-upVoteCount">Votes</option>
+                    </select>
                     <ul class="thumbnails">
-                        <li ng-repeat="session in event.sessions">                            
+                        <li ng-repeat="session in event.sessions | orderBy: sortOrder">                            
                             <div class="row session">
                                 <div class="span0 well votingWidget">
                                     <div class="votingButton" ng-click="upVoteSession(session)">
