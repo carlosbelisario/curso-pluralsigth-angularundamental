@@ -13,8 +13,7 @@ eventsApp.controller('EventController',
         
         eventData.getEvent($routeParams.id)
             .$promise.then(function(event) {
-                $scope.event = event;
-                $log.info(event);
+                $scope.event = event;               
             })
             .catch(function(response) {
                 $log.warn(response);
