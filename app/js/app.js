@@ -14,6 +14,8 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute'])
             templateUrl: 'templates/event/detail.html',
             controller: 'EventController'
         });
+        $routeProvider.otherwise({redirectTo: '/events'});
+        
     })
     .factory('myCache', function($cacheFactory) {
         return $cacheFactory('myCache', {capacity: 3});
