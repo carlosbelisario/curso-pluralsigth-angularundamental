@@ -7,7 +7,15 @@ eventsApp.controller('EventController',
         
         $scope.sortOrder = 'name';
         
-        $scope.event = eventData.getEvent();
+        eventData.getEvent()
+            .$promise.then(function(event) {
+                $scope.event = event;
+                $log.info(event);
+            })
+            .catch(function(response) {
+                $log.warn(response);
+            })            
+        ;
         
         $scope.upVoteSession = function(session) {
             session.upVoteCount++;
