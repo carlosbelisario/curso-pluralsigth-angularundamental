@@ -7,7 +7,7 @@ module.exports.get = function(request, response) {
 }
 
 module.exports.save = function(request, response) {
-    var event = request.body;
+    var event = request.body;    
     fs.writeFileSync('app/data/event/' + request.params.id + '.json', JSON.stringify(event));
     response.send(event);
 }
