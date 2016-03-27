@@ -1,11 +1,15 @@
 'use strict';
 
 eventsApp.controller('EventController', 
-    function($scope, $log, $anchorScroll, $routeParams, eventData) {
+    function($scope, $log, $anchorScroll, $routeParams, $route, eventData) {
         $scope.snippet = '<span style="color:red;">hi there</span>';
         $scope.boolValue = true;
         
         $scope.sortOrder = 'name';
+        
+        $scope.reload = function() {
+            $route.reload();
+        };
         
         eventData.getEvent($routeParams.id)
             .$promise.then(function(event) {

@@ -1,6 +1,7 @@
 <div>
     <img ng-src="{{event.imageUrl}}" alt="{{event.name}}" />
     <button type="button" ng-click="scrollToSession()" class="btn btn-primary">Scroll</button>
+    <button type="button" ng-click="reload()" class="btn btn-primary">Reload</button>
     <div class="row">
         <div class="span11">
             <h2>{{event.name | uppercase}}</h2>
